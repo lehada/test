@@ -255,5 +255,7 @@ io.on('connection', async function (socket) {
 const port = process.env.PORT || 3000;
 
 http.listen(port, () => {
-	console.log("Started " + port);
+	setInterval(() => {
+		console.log("Started " + port);
+	}, 5000);
 });
