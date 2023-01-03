@@ -10,13 +10,15 @@ const io = require('socket.io')(http, {
 const { connect, Schema, model } = require('mongoose');
 
 const start = async () => {
-    await connect('', {
+    await connect('mongodb+srv://admin:admin@cluster0.ixpg1gx.mongodb.net/?retryWrites=true&w=majority', {
         useNewUrlParser: true,
 	    useUnifiedTopology: true
     })
     .then(data => console.log('MongoDB connect!'))
     .catch(err => console.log(`MongoDB connect error - ${err}`));
 };
+
+start()
 
 const getUser = async uid => {
     let user = await User.findOne({ uid: uid }).exec();
